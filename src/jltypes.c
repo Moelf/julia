@@ -254,7 +254,7 @@ int jl_type_mappable_to_c(jl_value_t *ty)
 JL_DLLEXPORT int jl_get_size(jl_value_t *val, size_t *pnt)
 {
     if (jl_is_long(val)) {
-        ssize_t slen = jl_unbox_long(val);
+        ssize_t slen = jl_unbox_int32(val);
         if (slen < 0)
             jl_errorf("size or dimension is negative: %d", slen);
         *pnt = slen;
